@@ -1,6 +1,6 @@
 
 function submitData(userName, userEmail){
-    fetch("http://localhost:3000/users", {
+    return fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -16,5 +16,9 @@ function submitData(userName, userEmail){
       })
       .then(function(object) {
         document.body.innerHTML = object["id"]
-      });
+      })
+      .catch(function(error) {
+        document.body.innerHTML = error.message
+    });
+      
 }
